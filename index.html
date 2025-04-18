@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter to my Mom</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="img/PXL_20250418_112329267.MP.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+</head>
+<body>
+    <div class="container">
+        <div class="text-container">
+          <div id="text"></div>
+        </div>
+        <div class="controls">
+          <button id="pauseBtn"><i class="fas fa-pause"></i></button>
+          <button id="speedBtn"><i class="fas fa-tachometer-alt"></i> x1</button>
+          <button id="restartBtn"><i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+  <script src="script.js">
+    /* const paragraphs = [
+      "Hey Mère,",
+      "Je vais bien et je continue",
+      "mon chemin de petit bonhomme.",
+      "Oui, tu l'aurais deviné,",
+      "chaque 19 Avril demeures toujours spécial.",
+      "Ça me fait bizarre parfois!!!",
+      "Te rappelles-tu le temps",
+      "où tu restais en inquiétude,",
+      "quand je tremblais de peur, d'effroi?",
+      "Ça y est,",
+      "je suis peut-être arrivé à les surmonter,",
+      "je ne sais pas. Mais sois rassurée,",
+      "sur ce chemin d'apprentissage qu'est la vie,",
+      "je peux te dire que j'accepte désormais mes peurs,",
+      "et on croise le fer.",
+      "Je suis reconnaissant pour mes sœurs,",
+      "mes proches, tout mon entourage.",
+      "Et eux aussi d'ailleurs le sont en retour.",
+      "Tu leur as laissé une personne",
+      "capable de vieillir comme du bon vin.",
+      "Tu étais mon plus grand Bonheur.",
+      "A Santé."
+    ];
+
+    // Group paragraphs into pairs
+    const paragraphGroups = [];
+    for (let i = 0; i < paragraphs.length; i += 3) {
+      const group = paragraphs.slice(i, i + 3).join("<br><br>");
+      paragraphGroups.push(group);
+    }
+
+    const textElement = document.getElementById("text");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const speedBtn = document.getElementById("speedBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    
+    let currentGroup = 0;
+    let charIndex = 0;
+    let typingSpeed = 50;
+    let deleteSpeed = 30;
+    let speedMultiplier = 1;
+    let isTyping = true;
+    let isDeleting = false;
+    let timeoutId;
+
+    function typeText() {
+      if (!isTyping) return;
+      
+      const currentText = paragraphGroups[currentGroup];
+      
+      if (!isDeleting && charIndex < currentText.length) {
+        // Typing phase
+        textElement.innerHTML = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        timeoutId = setTimeout(typeText, typingSpeed / speedMultiplier);
+      } else if (!isDeleting && charIndex === currentText.length) {
+        // Finished typing, pause before deleting
+        isDeleting = true;
+        timeoutId = setTimeout(typeText, 2000 / speedMultiplier);
+      } else if (isDeleting && charIndex > 0) {
+        // Deleting phase
+        textElement.innerHTML = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        timeoutId = setTimeout(typeText, deleteSpeed / speedMultiplier);
+      } else if (isDeleting && charIndex === 0) {
+        // Finished deleting, move to next group
+        isDeleting = false;
+        currentGroup = (currentGroup + 1) % paragraphGroups.length;
+        timeoutId = setTimeout(typeText, 500 / speedMultiplier);
+      }
+    }
+
+    // Control buttons
+    pauseBtn.addEventListener('click', () => {
+      if (isTyping) {
+        clearTimeout(timeoutId);
+        isTyping = false;
+        pauseBtn.textContent = "Continuer";
+      } else {
+        isTyping = true;
+        pauseBtn.textContent = "Pause";
+        typeText();
+      }
+    });
+
+    speedBtn.addEventListener('click', () => {
+      speedMultiplier = speedMultiplier === 1 ? 2 : 1;
+      speedBtn.textContent = `Vitesse x${speedMultiplier}`;
+    });
+
+    restartBtn.addEventListener('click', () => {
+      clearTimeout(timeoutId);
+      currentGroup = 0;
+      charIndex = 0;
+      isTyping = true;
+      isDeleting = false;
+      textElement.innerHTML = "";
+      pauseBtn.textContent = "Pause";
+      typeText();
+    });
+
+    // Start typing
+    typeText(); */
+  </script>
+</body>
+</html>
